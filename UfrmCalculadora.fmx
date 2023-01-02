@@ -33,6 +33,7 @@ object form1: Tform1
       Size.PlatformDefault = False
       TabOrder = 6
       Text = '='
+      OnClick = BtnIgualClick
     end
     object BtnMultiplicacao: TButton
       Position.X = 223.000000000000000000
@@ -52,6 +53,7 @@ object form1: Tform1
       Size.PlatformDefault = False
       TabOrder = 16
       Text = '0'
+      OnClick = btnNumero0Click
     end
     object btnNumero1: TButton
       Position.X = 8.000000000000000000
@@ -61,6 +63,7 @@ object form1: Tform1
       Size.PlatformDefault = False
       TabOrder = 15
       Text = '1'
+      OnClick = btnNumero1Click
     end
     object btnNumero2: TButton
       Position.X = 80.000000000000000000
@@ -70,6 +73,7 @@ object form1: Tform1
       Size.PlatformDefault = False
       TabOrder = 11
       Text = '2'
+      OnClick = btnNumero2Click
     end
     object btnNumero3: TButton
       Position.X = 152.000000000000000000
@@ -79,6 +83,7 @@ object form1: Tform1
       Size.PlatformDefault = False
       TabOrder = 8
       Text = '3'
+      OnClick = btnNumero3Click
     end
     object btnNumero4: TButton
       Position.X = 8.000000000000000000
@@ -88,6 +93,7 @@ object form1: Tform1
       Size.PlatformDefault = False
       TabOrder = 13
       Text = '4'
+      OnClick = btnNumero4Click
     end
     object BtnNumero5: TButton
       Position.X = 80.000000000000000000
@@ -97,6 +103,7 @@ object form1: Tform1
       Size.PlatformDefault = False
       TabOrder = 10
       Text = '5'
+      OnClick = BtnNumero5Click
     end
     object BtnNumero6: TButton
       Position.X = 152.000000000000000000
@@ -106,6 +113,7 @@ object form1: Tform1
       Size.PlatformDefault = False
       TabOrder = 5
       Text = '6'
+      OnClick = BtnNumero6Click
     end
     object BtnNumero7: TButton
       Position.X = 8.000000000000000000
@@ -115,6 +123,7 @@ object form1: Tform1
       Size.PlatformDefault = False
       TabOrder = 12
       Text = '7'
+      OnClick = BtnNumero7Click
     end
     object BtnNumero8: TButton
       Position.X = 80.000000000000000000
@@ -124,6 +133,7 @@ object form1: Tform1
       Size.PlatformDefault = False
       TabOrder = 9
       Text = '8'
+      OnClick = BtnNumero8Click
     end
     object BtnNumero9: TButton
       Position.X = 152.000000000000000000
@@ -133,6 +143,7 @@ object form1: Tform1
       Size.PlatformDefault = False
       TabOrder = 2
       Text = '9'
+      OnClick = BtnNumero9Click
     end
     object BtnPonto: TButton
       Position.X = 8.000000000000000000
@@ -170,33 +181,40 @@ object form1: Tform1
       Size.Height = 73.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 17
-      object Edit3: TEdit
+      object edtPrimeiroNumero: TEdit
         Touch.InteractiveGestures = [LongTap, DoubleTap]
         TabOrder = 1
+        TextSettings.Font.Size = 30.000000000000000000
+        TextSettings.HorzAlign = Center
         Position.X = 16.000000000000000000
-        Position.Y = 24.000000000000000000
+        Position.Y = 21.000000000000000000
         Size.Width = 73.000000000000000000
-        Size.Height = 25.000000000000000000
+        Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
+        StyledSettings = [Family, Style, FontColor]
       end
-      object Edit4: TEdit
+      object edtSegundoNumero: TEdit
         Touch.InteractiveGestures = [LongTap, DoubleTap]
         TabOrder = 0
+        TextSettings.Font.Size = 30.000000000000000000
+        TextSettings.HorzAlign = Center
         Position.X = 176.000000000000000000
-        Position.Y = 24.000000000000000000
+        Position.Y = 21.000000000000000000
         Size.Width = 73.000000000000000000
-        Size.Height = 25.000000000000000000
+        Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
+        StyledSettings = [Family, Style, FontColor]
       end
       object lblOperador: TLabel
         StyledSettings = [Family, Style, FontColor]
         Position.X = 88.000000000000000000
         Position.Y = 21.000000000000000000
         Size.Width = 89.000000000000000000
-        Size.Height = 29.000000000000000000
+        Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Size = 30.000000000000000000
         TextSettings.HorzAlign = Center
+        Text = ' '
         TabOrder = 2
       end
     end
