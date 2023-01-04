@@ -30,6 +30,9 @@ type
     edtPrimeiroNumero: TEdit;
     edtSegundoNumero: TEdit;
     lblOperador: TLabel;
+    BtnApagarDigito: TButton;
+    BtnCE: TButton;
+    BtnC: TButton;
     procedure BtnSubtracaoClick(Sender: TObject);
     procedure BtnSomaClick(Sender: TObject);
     procedure BtnMultiplicacaoClick(Sender: TObject);
@@ -45,6 +48,10 @@ type
     procedure BtnNumero7Click(Sender: TObject);
     procedure BtnNumero8Click(Sender: TObject);
     procedure BtnNumero9Click(Sender: TObject);
+    procedure BtnPontoClick(Sender: TObject);
+    procedure BtnCEClick(Sender: TObject);
+    procedure BtnCClick(Sender: TObject);
+    procedure BtnApagarDigitoClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -58,6 +65,29 @@ implementation
 
 {$R *.fmx}
 
+procedure Tform1.BtnApagarDigitoClick(Sender: TObject);
+begin
+  if lblOperador.Text = ' ' then
+    edtPrimeiroNumero.Text := Copy(edtPrimeiroNumero.Text,0,length(edtPrimeiroNumero.Text)-1)
+  else
+    edtSegundoNumero.Text := Copy(edtSegundoNumero.Text,0,length(edtSegundoNumero.Text)-1);
+end;
+
+procedure Tform1.BtnCClick(Sender: TObject);
+begin
+  if lblOperador.Text = ' ' then
+    edtPrimeiroNumero.Text := ' '
+  else
+    edtSegundoNumero.Text := ' ';
+end;
+
+procedure Tform1.BtnCEClick(Sender: TObject);
+begin
+  edtPrimeiroNumero.Text := '';
+  edtSegundoNumero.Text := '';
+  lblOperador.Text := ' ';
+end;
+
 procedure Tform1.BtnDivisaoClick(Sender: TObject);
 begin
   lblOperador.Text := '/';
@@ -65,19 +95,19 @@ end;
 
 procedure Tform1.BtnIgualClick(Sender: TObject);
 var
-  Resultado: Currency;
+  Resultado: Double;
 begin
   Resultado := 0;
   if lblOperador.Text = '+' then
-    Resultado := Strtoint(edtPrimeiroNumero.Text) + strtoint(edtSegundoNumero.Text);
+    Resultado := StrToFloat(edtPrimeiroNumero.Text) + StrToFloat(edtSegundoNumero.Text);
   if lblOperador.Text = '-' then
-    Resultado := Strtoint(edtPrimeiroNumero.Text) - strtoint(edtSegundoNumero.Text);
+    Resultado := StrToFloat(edtPrimeiroNumero.Text) - StrToFloat(edtSegundoNumero.Text);
   if lblOperador.Text = '*' then
-    Resultado := Strtoint(edtPrimeiroNumero.Text) * strtoint(edtSegundoNumero.Text);
+    Resultado := StrToFloat(edtPrimeiroNumero.Text) * StrToFloat(edtSegundoNumero.Text);
   if lblOperador.Text = '/' then
-    Resultado := Strtoint(edtPrimeiroNumero.Text) / strtoint(edtSegundoNumero.Text);
+    Resultado := StrToFloat(edtPrimeiroNumero.Text) / StrToFloat(edtSegundoNumero.Text);
 
-  Showmessage(CurrToStr(Resultado));
+  Showmessage('O resultado é ' + FloatToStr(Resultado));
 
   edtPrimeiroNumero.Text := '';
   edtSegundoNumero.Text := '';
@@ -92,81 +122,89 @@ end;
 procedure Tform1.btnNumero0Click(Sender: TObject);
 begin
   if lblOperador.Text = ' ' then
-    edtPrimeiroNumero.Text := IntToStr(0)
+    edtPrimeiroNumero.Text := edtPrimeiroNumero.Text + '0'
   else
-    edtSegundoNumero.Text := IntToStr(0);
+    edtSegundoNumero.Text := edtSegundoNumero.Text + '0';
 end;
 
 procedure Tform1.btnNumero1Click(Sender: TObject);
 begin
   if lblOperador.Text = ' ' then
-    edtPrimeiroNumero.Text := IntToStr(1)
+    edtPrimeiroNumero.Text := edtPrimeiroNumero.Text + '1'
   else
-    edtSegundoNumero.Text := IntToStr(1);
+    edtSegundoNumero.Text := edtSegundoNumero.Text + '1';
 end;
 
 procedure Tform1.btnNumero2Click(Sender: TObject);
 begin
   if lblOperador.Text = ' ' then
-    edtPrimeiroNumero.Text := IntToStr(2)
+    edtPrimeiroNumero.Text := edtPrimeiroNumero.Text + '2'
   else
-    edtSegundoNumero.Text := IntToStr(2);
+    edtSegundoNumero.Text := edtSegundoNumero.Text + '2';
 end;
 
 procedure Tform1.btnNumero3Click(Sender: TObject);
 begin
   if lblOperador.Text = ' ' then
-    edtPrimeiroNumero.Text := IntToStr(3)
+    edtPrimeiroNumero.Text := edtPrimeiroNumero.Text + '3'
   else
-    edtSegundoNumero.Text := IntToStr(3);
+    edtSegundoNumero.Text := edtSegundoNumero.Text + '3';
 end;
 
 procedure Tform1.btnNumero4Click(Sender: TObject);
 begin
   if lblOperador.Text = ' ' then
-    edtPrimeiroNumero.Text := IntToStr(4)
+    edtPrimeiroNumero.Text := edtPrimeiroNumero.Text + '4'
   else
-    edtSegundoNumero.Text := IntToStr(4);
+    edtSegundoNumero.Text := edtSegundoNumero.Text + '4';
 end;
 
 procedure Tform1.BtnNumero5Click(Sender: TObject);
 begin
   if lblOperador.Text = ' ' then
-    edtPrimeiroNumero.Text := IntToStr(5)
+    edtPrimeiroNumero.Text := edtPrimeiroNumero.Text + '5'
   else
-    edtSegundoNumero.Text := IntToStr(5);
+    edtSegundoNumero.Text := edtSegundoNumero.Text + '5';
 end;
 
 procedure Tform1.BtnNumero6Click(Sender: TObject);
 begin
   if lblOperador.Text = ' ' then
-    edtPrimeiroNumero.Text := IntToStr(6)
+    edtPrimeiroNumero.Text := edtPrimeiroNumero.Text + '6'
   else
-    edtSegundoNumero.Text := IntToStr(6);
+    edtSegundoNumero.Text := edtSegundoNumero.Text + '6';
 end;
 
 procedure Tform1.BtnNumero7Click(Sender: TObject);
 begin
   if lblOperador.Text = ' ' then
-    edtPrimeiroNumero.Text := IntToStr(7)
+    edtPrimeiroNumero.Text := edtPrimeiroNumero.Text + '7'
   else
-    edtSegundoNumero.Text := IntToStr(7);
+    edtSegundoNumero.Text := edtSegundoNumero.Text + '7';
 end;
 
 procedure Tform1.BtnNumero8Click(Sender: TObject);
 begin
   if lblOperador.Text = ' ' then
-    edtPrimeiroNumero.Text := IntToStr(8)
+    edtPrimeiroNumero.Text := edtPrimeiroNumero.Text + '8'
   else
-    edtSegundoNumero.Text := IntToStr(8);
+    edtSegundoNumero.Text := edtSegundoNumero.Text + '8';
 end;
 
 procedure Tform1.BtnNumero9Click(Sender: TObject);
 begin
   if lblOperador.Text = ' ' then
-    edtPrimeiroNumero.Text := IntToStr(9)
+    edtPrimeiroNumero.Text := edtPrimeiroNumero.Text + '9'
   else
-    edtSegundoNumero.Text := IntToStr(9);
+    edtSegundoNumero.Text := edtSegundoNumero.Text + '9';
+end;
+
+procedure Tform1.BtnPontoClick(Sender: TObject);
+begin
+  if lblOperador.Text = ' ' then
+    edtPrimeiroNumero.Text := edtPrimeiroNumero.Text + ','
+  else
+    edtSegundoNumero.Text := edtSegundoNumero.Text + ',';
 end;
 
 procedure Tform1.BtnSomaClick(Sender: TObject);
